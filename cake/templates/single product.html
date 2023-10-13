@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single product</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="https://kit.fontawesome.com/182603b8d9.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Oswald:wght@200;300&family=Righteous&display=swap" rel="stylesheet">
+    
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+   <header>
+    <div class="">
+        <div class="bg-black  py-6">
+
+        </div>
+         <div>
+            <nav>
+                <div class="flex justify-between px-60 shadow-lg ipad:px-8 mobile:items-center">
+                    <a href=".{% url 'cake:home' %}" class="mobile:mt-[-1rem]" ><img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="" class="absolute top-20 mobile:static mobile:mb-[-6rem]"></a>
+                    <div class="mobile:hidden">
+                        <ul class="flex gap-10 py-10 text-xl">
+                            <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                            <li><a href="">Order</a></li>
+                            <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                            <a href="{% url 'cart:cart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="{% url 'cake:profile' %}"><i class="fa-solid fa-user"></i></a>
+                        </ul>
+                    </div>
+                    <div class="hidden mobile:block">
+                        <i class="fa-solid fa-bars"id="menuicon"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="slidediv py-8 items-center text-center right-0 top-0 fixed h-full hidden ipad:block" id="slidemenu">
+        <div>
+            <ul class=" flex flex-col gap-10">
+                <h1 class="">MENU</h1>
+                <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                <li><a href="#">Order</a></li>
+                <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                <li><a href="{% url 'cart:cart' %}">Cart</a></li>
+                <li><a href="{% url 'cake:profile' %}">Profile</a></li>
+                <li><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+            </ul>
+        </div>
+</div>
+   </header>
+   <section>
+    <div class="flex mx-48 gap-32 ipad_min:mx-0 ipad_min:block">
+        
+        <div class="mt-40">
+            <img src="{{ product.image.url }}" alt="">
+            <div class="flex w-44 h-36  gap-5 py-5 ml-32 ipad_min:ml-4 ipad_min:gap-3">
+                <img src="{{ product.image1.url }}" alt="">
+                <img src="{{ product.image2.url }}" alt="">
+                <img src="{{ product.image3.url }}" alt="">
+                <img class="ipad_min:hidden" src="{{ product.image3.url }}" alt="">
+            </div>
+        </div>
+        
+        <div class="mt-20 mobile:ml-10">
+            <div>
+                <h2 class=" text-3xl pb-4 font-righteous mobile:text-lg">{{ product.cake_name }}</h2>
+                <div class="flex">
+                    <img src="{% static 'image/rupee 1.png' %}" alt="">
+                    <p class="font-semibold text-5xl">₹{{ product.price }}</p>
+                </div>
+            </div>
+            <div class="pt-10">
+                <p>Pick an upgrade</p>
+            </div>
+            <div class="flex gap-10 py-5">
+                <div class="flex gap-3 border border-black rounded-lg px-5 py-2">
+                    <img src="{% static 'image/Rectangle 6 (2).png' %}" alt="" class="w-18 h-14">
+                    <div class="py-2 ">
+                        <p>1/2kg</p>
+                        <p>₹ 399</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <img src="{% static 'image/Rectangle 6 (2).png' %}" alt="" class="w-18 h-14">
+                    <div class="py-2">
+                        <p>1/2kg</p>
+                        <p>₹ 399</p>
+                    </div>
+                </div>
+                <div >
+                    <button class="flex gap-3 ipad_min:hidden"> 
+                        <img src="{% static 'image/Rectangle 6 (2).png' %}" alt="" class="w-18 h-14">
+                        <div class="py-2">
+                            <p>1/2kg</p>
+                            <p>₹ 399</p>
+                        </div>
+                   </button>
+                </div>
+            </div>
+            <div class="flex gap-3 hidden ipad_min:block">
+                <img src="{% static 'image/Rectangle 6 (2).png' %}" alt="" class="w-18 h-14">
+                <div class="py-2">
+                    <p>1/2kg</p>
+                    <p>₹ 399</p>
+                </div>
+            </div>
+            <div>
+                <div class="rightbox">
+                    <input type="checkbox" name="In-stock" id="stock" class="box">
+                    <label for="In-stock">Eggless</label>
+                </div>
+                <div class="border-2 rounded-xl py-3 pl-4 border-gray-300 mb-4 mt-20">
+                    <input type="text" class="location" placeholder="Add location">
+                </div>
+                <div class="flex gap-5 ipad_min:block">
+                    <div class="border-2 rounded-xl py-3 pl-4 border-gray-300 flex gap-3">
+                        <img src="{%  static 'image/calendar-2.png' %}" alt="" class="calander-icon">
+                        <input type="calander" class="" placeholder="Delivery Date" >
+                    </div>
+                    <div class="border-2 rounded-xl py-3 pl-4 border-gray-300 flex ipad_min:mt-5">
+                        <input type="text" class="" placeholder="Message">
+                    </div>
+                </div>
+                <div class="flex gap-5 mt-7"> 
+                    <div class="bg-lime-500 border-2 rounded-xl px-24 py-4 hover:bg-black hover:text-white ipad_min:px-10">
+                       <p><a href="{% url 'cart:add_to_cart' product.id %}"><button>Add to cart</button></a></p>
+                    </div>
+                    <div class="bg-amber-400 border-2 rounded-xl px-24 py-4  hover:bg-black hover:text-white ipad_min:px-10">
+                        <p><a href="#"><button>Buy Now</button></a></p>
+                    </div>
+                </div>
+                <div class=" text-2xl pt-20 font-righteous">
+                    <h3>Description</h3>
+                </div>
+                <hr class=" border-black mb-5">
+                <div class="hidden mobile:block">
+                    <p class="py-5">Product Details:</p>
+                    <ul class="leading-loose ml-7 list-disc">
+                        <li>Cake Flavour-Caramel</li>
+                        <li>Version-Eggless</li>
+                        <li>Type of Cake-Cream Cake</li>
+                        <li>Weight-Half kg</li>
+                        <li>Shape-Round</li>
+                        <li>Serves-4-6 People</li>
+                        <li>Size 6 Inches in Diameter </li>
+                    </ul>
+                </div>
+                <div class="hidden mobile:block">
+                    <p class="mt-7 mb-3">Please Note:</p>
+                    <ul class="text-xs leading-relaxed ml-7 list-disc">
+                        <li>The cake stand, cutlery & accessories used in the image are only for representation purposes. They are not delivered with the cake.</li>
+                        <li> This cake is hand delivered in a good quality cardboard box.</li>
+                        <li>Country of Origin: India</li>
+                    </ul>
+                </div>
+                <div class="hidden mobile:block">
+                    <h3 class="text-xl font-righteous">Delivery Information</h3>
+                    <hr class="mb-5 border-black">
+                    <ul class="text-xs leading-relaxed ml-7 list-disc">
+                        <li>Every cake we offer is handcrafted and since each chef has his/her own way of baking and designing a cake, there might be slight variation in the product in terms of design and shape.</li>
+                        <li> The chosen delivery time is an estimate and depends on the availability of the product and the destination to which you want the product to be delivered.</li>
+                        <li> Since cakes are perishable in nature, we attempt delivery of your order only once. The delivery cannot be redirected to any other address.</li>
+                        <li> This product is hand delivered and will not be delivered along with courier products.</li>
+                        <li> Occasionally, substitutions of flavours/designs is necessary due to temporary and/or regional unavailability issues.</li>
+                    </ul>
+                </div>
+                <div class="hidden mobile:block">
+                    <div>
+                        <img src="{% static 'image/Rectangle 6 (7).png' %}" alt="">
+                        <h3 class="py-3 font-bold text-xl">₹ 540</h3>
+                        <p>Butterscotch Chocolate </p>
+                    </div>
+                    <div>
+                        <img src="{% static 'image/Rectangle 6 (8).png' %}" alt="">
+                        <h3 class="py-3 font-bold text-xl">₹ 540</h3>
+                        <p>Butterscotch Coffee Cake</p>
+                    </div>
+                    <div>
+                        <img src="{% static 'image/Rectangle 6 (7).png' %}" alt="">
+                        <h3 class="py-3 font-bold text-xl">₹ 540</h3>
+                        <p>Butterscotch Chocolate </p>
+                    </div>
+                    <div>
+                        <img src="{% static 'image/Rectangle 6 (8).png' %}" alt="">
+                        <h3 class="py-3 font-bold text-xl">₹ 540</h3>
+                        <p>Butterscotch Coffee Cake</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
+   <div class="flex justify-center gap-16 py-16 mobile:hidden">
+        {% for product in products %} 
+        <div>
+            <img src="{{ product.image.url }}" alt="">
+            <h3 class="py-3 font-bold text-xl">₹ {{ product.price }}</h3>
+            <p>{{ product.cake_name }}</p>
+        </div>
+        {% endfor %}
+        {% comment %} <div>
+            <img src="{% static 'image/Rectangle 6 (3).png' %}" alt="">
+            <h3 class="py-3 font-bold text-xl">₹ 540</h3>
+            <p>Butterscotch Bundt Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'image/Rectangle 6 (4).png' %}" alt="">
+            <h3 class="py-3 font-bold text-xl">₹ 540</h3>
+            <p>Butterscotch Caramel Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'image/Rectangle 6 (5).png' %}" alt="">
+            <h3 class="py-3 font-bold text-xl">₹ 540</h3>
+            <p>Butterscotch Caramel Cake</p>
+        </div> {% endcomment %}
+    </div>
+    <footer class="bg-black text-white">
+        <div class="py-16">
+            <div class="flex justify-center">
+                <img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="">
+            </div>
+            
+            <div>
+                <ul class="flex justify-center py-5 gap-5">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Stuffing</a></li>
+                    <li><a href="">Order</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="flex justify-center gap-5 pb-3">
+                <a href=""><img src="{% static 'image/baseline-facebook (2) 1.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'image/whatsapp 1.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'image/instagram-fill 1.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'image/square-x-twitter (1) 1.png' %}" alt=""></a>
+            </div>
+            <hr>
+            <div  class="text-center pt-5">
+               <p>Copyright cake walk</p>
+            </div>
+        </div>
+       </footer>
+       <script src="./script.js"></script>
+   </body>
+   </html>

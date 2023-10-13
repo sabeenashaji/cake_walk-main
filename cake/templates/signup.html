@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://kit.fontawesome.com/182603b8d9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="'https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Oswald:wght@200;300&family=Righteous&display=swap'" rel="stylesheet"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Oswald:wght@200;300&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">  
+</head>
+<body>
+   <header>
+    <div class="">
+        <div class="bg-black  py-6">
+
+        </div>
+         <div class="">
+            <nav>
+                <div class="flex justify-between px-60 shadow-lg ipad:px-8 mobile:items-center">
+                    <a href="./home.html" class="mobile:mt-[-1rem]" ><img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="" class="absolute top-20 mobile:static mobile:mb-[-6rem]"></a>
+                    <div class="mobile:hidden">
+                        <ul class="flex gap-10 py-10 text-xl">
+                            <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                            <li><a href="">Order</a></li>
+                            <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                            <a href="{% url 'cart:view_cart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="{% url 'cake:profile' %}"><i class="fa-solid fa-user"></i></a>
+                        </ul>
+                    </div>
+                    <div class="hidden mobile:block">
+                        <i class="fa-solid fa-bars"id="menuicon"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="slidediv py-8 items-center text-center right-0 top-0 fixed h-full hidden ipad:block" id="slidemenu">
+            <div>
+                <ul class=" flex flex-col gap-10">
+                    <h1 class="">MENU</h1>
+                    <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                    <li><a href="{% url 'cart:view_cart' %}">Cart</a></li>
+                    <li><a href="{% url 'cake:profile' %}">Profile</a></li>
+                    <li><a href=""><i class="fa-solid fa-xmark"></i></a></li>
+                </ul>
+            </div>
+    </div>
+   </header>
+   <section>
+        <div class="flex justify-center mt-52 ">
+            <form method="post">
+                {% csrf_token %}
+                <h3 class="text-xl pb-10">Let's get you started</h3>
+                <label class="pt-10 pb-2">Full name</label>
+                <div>
+                    {% comment %} <input type="text" class="border h-10 w-80 mb-5" placeholder="name"> {% endcomment %}
+                    {{ user_form.fullname }}
+                </div>
+                <label class="pt-10 pb-2">Email address</label>
+                <div>
+                    {% comment %} <input type="text" class="border h-10 w-80 mb-5" placeholder="Email"> {% endcomment %}
+                    {{ user_form.emailaddress }}
+                </div>
+                <label  class="pt-10 pb-2">Phone number</label>
+                <div>
+                    {% comment %} <input type="number" class="border h-10 w-80 mb-5" placeholder="phone number"> {% endcomment %}
+                    {{ user_form.phonenumber }}
+                </div>
+                <label class="pt-10 pb-2">Create password</label>
+                <div>
+                    {% comment %} <input type="text" class="border h-10 w-80 mb-5" placeholder="password"> {% endcomment %}
+                    {{ user_form.password }}
+                
+                    <p class="text-gray-500 text-xs py-10">Password must contain a minimam of charecters <br> Password must contain at least one symbol e.g. @, !</p>
+                    <label class=" pt-10">Location <span class="text-gray-500">(optional)</span></label>
+                <div>
+                    {% comment %} <input type="text" class="border h-10 w-80 mb-5" placeholder="select location"> {% endcomment %}
+                    {{ user_form.location }}
+                </div>
+                <div>
+                    <button class="v text-center h-10 w-80 font-bold" type='submit'>Sign Up</button>
+                </div>
+                <div class="flex justify-center">
+                    <p class="text-gray-500 text-sm py-5">Already a user? </p>
+                    <button><a href="#">Login</a></button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer class="bg-black text-white mt-32">
+        <div class="py-16">
+            <div class="flex justify-center">
+                <img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="">
+            </div>
+            
+            <div>
+                <ul class="flex justify-center py-5 gap-5 mobile:hidden">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Stuffing</a></li>
+                    <li><a href="">Order</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="flex justify-center gap-5 pb-3">
+                <a href=""><img src="{% static 'image/baseline-facebook (2) 1.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'image/whatsapp 1.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'image/instagram-fill 1.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'image/square-x-twitter (1) 1.png' %}" alt=""></a>
+            </div>
+            <hr>
+            <div  class="text-center pt-5">
+               <p>Copyright cake walk</p>
+            </div>
+        </div>
+       </footer>
+       <script src="./script.js"></script>
+    </body>
+    </html>

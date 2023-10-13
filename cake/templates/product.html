@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="https://kit.fontawesome.com/182603b8d9.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png '%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        /* Styling for the pop-up container */
+        .popup-container {
+            display: none; /* Hide the container by default */
+            position: fixed;
+            top: 50%;
+            left:40% ;
+            right:0;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        /* Styling for the list */
+        .popup-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Styling for list items */
+        .popup-list-item {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    
+   <header>
+    <div class="">
+        <div class="bg-black  py-6">
+
+        </div>
+         <div class="">
+            <nav>
+                <div class="flex justify-between px-60 shadow-lg ipad:px-8 mobile:items-center">
+                    <a href="{% url 'cake:home' %}" class="mobile:mt-[-1rem]" ><img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="" class="absolute top-20 mobile:static mobile:mb-[-6rem]"></a>
+                    <div class="mobile:hidden">
+                        <ul class="flex gap-10 py-10 text-xl">
+                            <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                            <li><a href="">Order</a></li>
+                            <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                            <a href="{% url 'cart:cart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="{% url 'cake:profile' %}"><i class="fa-solid fa-user"></i></a>
+                        </ul>
+                    </div>
+                    <div class="hidden mobile:block">
+                        <i class="fa-solid fa-bars"id="menuicon"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="slidediv py-8 items-center text-center right-0 top-0 fixed h-full hidden ipad:block" id="slidemenu">
+        <div>
+            <ul class=" flex flex-col gap-10">
+                <h1 class="">MENU</h1>
+                <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                <li><a href="#">Order</a></li>
+                <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                <li><a href="{% url 'cart:cart' %}">Cart</a></li>
+                <li><a href="{% url 'cake:profile' %}">Profile</a></li>
+                <li><a href=""><i class="fa-solid fa-xmark"></i></a></li>
+            </ul>
+        </div>
+   </div>
+   </header>
+   <section class="mt-28">
+        <div class="flex pl-[18%] gap-5 mobile:hidden">
+            <h2 class="font-bold text-5xl">Cake</h2>
+            <ul class="flex justify-between gap-16  pl-20 text-xl mt-3">
+                <li><a href="">Cake</a></li>
+                <li><a href="">Muffins</a></li>
+                <li><a href="">Cupcake</a></li>
+                <li><a href="">Popsicle</a></li>
+            </ul>
+        </div>
+       
+        <div class="hidden ipad_min:block ipad_min:flex ipad_min:justify-between">
+
+
+            <div class="hidden ipad:block ipad_min:flex ipad_min:gap-5 ipad_min:px-5">
+                <p><a href="#">Cake</a></p>
+                <i  class="fa-solid fa-angle-down py-1" id="showPopupBtn"></i>
+            </div>
+
+            <div class="ipad_min:flex ipad_min:block ipad_min:gap-4 ipad_min:px-5">
+                <img src="{% static 'image/filter.png' %}" alt="">
+                <p>Filter</p>
+            </div>
+
+        </div>
+         <div class="slide py-8 items-center text-center right-0 top-0 fixed h-full hidden ipad:block">
+            <div id="popup" class="popup-container">
+                <ul class="popup-list">
+                    <li><a href="#">Cake</a></li>
+                    <li><a href="#">Muffins</a></li>
+                    <li><a href="#">Cupcake</a></li>
+                    <li><a href="#">Popsicle</a></li>
+                    <li><a href=""><i class="fa-solid fa-xmark"></i></a></li>
+                </ul>
+            </div>
+         </div>  
+        
+    
+   </section>
+   <div class=" grid-cols-4 grid px-52 py-20 ipad_min:grid ipad_min:px-10 ipad_min:py-10 ipad_min:grid-cols-2 ipad:w-[22rem] ipad_min:gap-10">
+    {% for product in products %}
+    <div>
+        <a href="{% url 'cake:single_product' product.pk %}"><img src="{{ product.image.url }}" alt=""></a>
+        <h3 class="font-bold text-xl">{{ product.price }}</h3>
+        <p>{{ product.cake_name }}</p>
+    </div>
+    {% endfor %}
+    {% comment %} <div>
+        <img src="{% static 'image/Rectangle 6 (3).png' %}" alt="">
+        <h3 class="font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Bundt Cake</p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (4).png' %}" alt="">
+        <h3 class="font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Caramel Cake</p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (5).png' %}" alt="">
+        <h3 class=" font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Caramel Cake</p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (6).png' %}" alt="">
+        <h3 class="font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Banana Cake</p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (7).png' %}" alt="">
+        <h3 class="font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Chocolate </p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (8).png' %}" alt="">
+        <h3 class=" font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Coffee Cake</p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (8).png' %}" alt="">
+        <h3 class="font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Coffee Cake</p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (9).png' %}" alt="">
+        <h3 class=" font-bold text-xl">₹ 540</h3>
+        <p>Butterscotch Bliss Cake</p>
+    </div>
+    <div>
+        <img src="{% static 'image/Rectangle 6 (10).png' %}" alt="">
+        <h3 class="font-bold text-xl">₹ 540</h3>
+        <p>Chocolate Fudge Cake</p>
+    </div> {% endcomment %}
+</div>
+   <footer class="bg-black text-white">
+    <div class="py-16">
+        <div class="flex justify-center">
+            <img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="">
+        </div>
+        
+        <div class="mobile:hidden">
+            <ul class="flex justify-center py-5 gap-5 ">
+                <li><a href="">Home</a></li>
+                <li><a href="">Stuffing</a></li>
+                <li><a href="">Order</a></li>
+                <li><a href="">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="flex justify-center gap-5 pb-3">
+            <a href="#"><img src="{% static 'image/baseline-facebook (2) 1.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'image/whatsapp 1.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'image/instagram-fill 1.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'image/square-x-twitter (1) 1.png'%}" alt=""></a>
+        </div>
+        <hr>
+        <div  class="text-center pt-5">
+           <p>Copyright cake walk</p>
+        </div>
+    </div>
+   </footer>
+   <script src="{% static 'script.js' %}"></script>
+   <script>
+        // JavaScript to handle the pop-up
+        const showPopupBtn = document.getElementById('showPopupBtn');
+        const popup = document.getElementById('popup');
+
+        showPopupBtn.addEventListener('click', () => {
+            // Toggle the visibility of the pop-up
+            if (popup.style.display === 'block') {
+                popup.style.display = 'none';
+            } else {
+                popup.style.display = 'block';
+            }
+        });
+    </script>
+   </body>
+   </html>

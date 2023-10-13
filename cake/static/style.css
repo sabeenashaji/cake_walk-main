@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font1{
+    font-family: 'Righteous', cursive;
+    font-weight: 100;
+}
+.slidediv {
+    width: 0%;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 0;
+    height: 100%;
+    background-color:white;
+}
+  
+.slidediv.show {
+    width: 75% !important;
+    overflow: visible !important;
+    z-index: 0;
+}
+.v{
+    background-color:rgb(245, 190, 50)
+}
+.co{
+    background-color:rgb(253, 186, 18)
+}

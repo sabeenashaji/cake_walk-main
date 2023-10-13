@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="https://kit.fontawesome.com/182603b8d9.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <header>
+        <div class="">
+            <div class="bg-black  py-6">
+    
+            </div>
+             <div class="">
+                <nav>
+                    <div class="flex justify-between px-60 shadow-lg ipad:px-8 mobile:items-center">
+                        <a href="{% url 'cake:home' %}" class="mobile:mt-[-1rem]" ><img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="" class="absolute top-20 mobile:static mobile:mb-[-6rem]"></a>
+                        <div class="mobile:hidden">
+                            <ul class="flex gap-10 py-10 text-xl">
+                                <li><a href="{% url  'cake:product' %}">Cakes</a></li>
+                                <li><a href="">Order</a></li>
+                                <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                                <a href="{% url 'cart:cart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <a href="{% url 'cake:profile' %}"><i class="fa-solid fa-user"></i></a>
+                            </ul>
+                        </div>
+                        <div class="hidden mobile:block">
+                            <i class="fa-solid fa-bars"id="menuicon"></i>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="slidediv py-8 items-center text-center right-0 top-0 fixed h-full hidden ipad:block" id="slidemenu">
+            <div>
+                <ul class=" flex flex-col gap-10">
+                    <h1 class="">MENU</h1>
+                    <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                    <li><a href="{% url 'cart:cart' %}">Cart</a></li>
+                    <li><a href="{% url 'cake:profile' %}">Profile</a></li>
+                    <li><a href=""><i class="fa-solid fa-xmark"></i></a></li>
+                </ul>
+            </div>
+    </div>
+       </header>
+   <section>
+    <div class="flex justify-center py-40 gap-20 ipad_min:grid">
+        <div class="">
+            <div class="ipad_min:p-5">
+                <h2 class="font-bold text-4xl">Get in Touch</h2>
+                <p class="py-6">Enim tempor eget pharetra facilisis sed maecenas adipiscing.Euleo <br> molestie vel ornare non id blandit netus.</p>
+            </div>  
+            <form action="" class="px-5">
+                <div class="border h-10 w-96 px-3 pt-2 ipad_min:w-80">
+                    <input type="text" class="" placeholder="Name">
+                </div>
+                <div class="border my-5 h-10 w-96 px-3 pt-2 ipad_min:w-80">
+                    <input type="text" class="" placeholder="Email">
+                </div>
+                <div class="border h-10 w-96 px-3 pt-2 ipad_min:w-80">
+                    <input type="number" class="" placeholder="Phone number">
+                </div>
+                <div class="flex justify-between border my-5 h-10 w-96 px-3 ipad_min:w-80">
+                    <input type="text" class="" placeholder="How did you find us?">
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </form>  
+            <div class="bg-yellow-400 h-10 w-96 text-center pt-2 ipad_min:w-60 ipad_min:mx-10">
+                <p><a href=""><button class="font-bold">SEND</button></a></p>
+            </div>
+            <div class="flex my-16 gap-5 ipad_min:px-10">
+                <div class="flex gap-3">
+                    <img src="{% static 'image/Frame 831.png' %}" alt="" class="h-8">
+                    <div>
+                        <p class="text-xs">PHONE</p>
+                        <p class="text-red-500 text-xs">03 5432 1234</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <img src="{% static 'image/Frame 835.png' %}" alt="" class="h-8">
+                    <div>
+                        <p class="text-xs">FAX</p>
+                        <p class="text-red-500 text-xs">03 5432 1234</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 ipad_min:hidden">
+                    <img src="{% static 'image/Frame 833.png' %}" alt="" class="h-8">
+                    <div>
+                        <p class="text-xs">EMAIL</p>
+                        <p class="text-red-500 text-xs">info@marcc.com.au</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-3 hidden ipad_min:block ipad_min:px-10">
+                <img src="{% static 'image/Frame 833.png' %}" alt="" class="h-8">
+                <div>
+                    <p class="text-xs">EMAIL</p>
+                    <p class="text-red-500 text-xs">info@marcc.com.au</p>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <img src="{% static 'image/Rectangle 31.png' %}" alt="" class="relative left-[100px] rounded-r-[100px] ipad_min:hidden">
+            <iframe class="absolute top-[24rem] ipad_min:w-[20rem] ipad_min:h-[20rem] ipad_min:px-10 ipad_min:relative ipad_min:top-16" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23793.789925953803!2d76.30850764693938!3d9.998732708233641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080da69f55f409%3A0x346a8b9f93b36fac!2sCakewalk!5e0!3m2!1sen!2sin!4v1695279600549!5m2!1sen!2sin" width="450" height="700" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+   </section>
+   <footer class="bg-black text-white mt-20 ipad_min:mt-0">
+    <div class="py-16">
+        <div class="flex justify-center">
+            <img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="">
+        </div>
+        
+        <div>
+            <ul class="flex justify-center py-5 gap-5">
+                <li><a href="">Home</a></li>
+                <li><a href="">Stuffing</a></li>
+                <li><a href="">Order</a></li>
+                <li><a href="">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="flex justify-center gap-5 pb-3">
+            <a href=""><img src="{% static 'image/baseline-facebook (2) 1.png' %}" alt=""></a>
+            <a href=""><img src="{% static 'image/whatsapp 1.png' %}" alt=""></a>
+            <a href=""><img src="{% static 'image/instagram-fill 1.png' %}" alt=""></a>
+            <a href=""><img src="{% static 'image/square-x-twitter (1) 1.png' %}" alt=""></a>
+        </div>
+        <hr class="">
+        <div  class="text-center pt-5">
+           <p>Copyright cake walk</p>
+        </div>
+    </div>
+   </footer>
+   <script src="{% static 'script.js' %}"></script>
+   </body>
+   </html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="https://kit.fontawesome.com/182603b8d9.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <header>
+        <div class="">
+            <div class="bg-black  py-6">
+    
+            </div>
+             <div class="">
+                <nav>
+                    <div class="flex justify-between px-60 shadow-lg ipad:px-8 mobile:items-center">
+                        <a href="{% url 'cake:home' %}" class="mobile:mt-[-1rem]" ><img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="" class="absolute top-20 mobile:static mobile:mb-[-6rem]"></a>
+                        <div class="mobile:hidden">
+                            <ul class="flex gap-10 py-10 text-xl">
+                                <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                                <li><a href="">Order</a></li>
+                                <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                                <a href="{% url 'cart:cart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <a href="{% url 'cake:profile' %}"><i class="fa-solid fa-user"></i></a>
+                            </ul>
+                        </div>
+                        <div class="hidden mobile:block">
+                            <i class="fa-solid fa-bars"id="menuicon"></i>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="slidediv py-8 items-center text-center right-0 top-0 fixed h-full hidden ipad:block" id="slidemenu">
+            <div>
+                <ul class=" flex flex-col gap-10">
+                    <h1 class="">MENU</h1>
+                    <li><a href="{% url 'cake:product' %}">Cakes</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="{% url 'cake:contact' %}">Contact us</a></li>
+                    <li><a href="{% url 'cart:cart' %}">Cart</a></li>
+                    <li><a href="{% url 'cake:profile' %}">Profile</a></li>
+                    <li><a href=""><i class="fa-solid fa-xmark"></i></a></li>
+                </ul>
+            </div>
+    </div>
+       </header>
+   <section class="mt-32">
+    <div class="flex justify-evenly ipad_min:grid">
+        <div class="aaaaa ipad_min:hidden">
+            <div class="flex gap-2 py-5">
+                <a href=""><i class="fa-solid fa-angle-left"></i></a>
+                <h4 class="font-bold text-xl">Shopping Continew</h4>
+            </div>
+            <hr>
+            <div class="py-6">
+                <h4 class="font-bold text-xl">Shopping cart</h4>
+                <p>You have 3 item in your cart</p>
+            </div>
+            
+            <div class="flex gap-12 border-b rounded-xl shadow-md py-3 text-center ipad_min:gap-0">
+                <img src="{% static 'image/images (1) 1.png' %}" alt="" class="h-20">
+                <div>
+                  <h4 class=" text-xl">cream cake</h4>
+                  <p class="text-xs">Extra chees and toping</p>
+                </div>
+                <div class="flex gap-12 ipad_min:gap-0">
+                    <select class="outline-none pl-3 ipad_min:pl-0" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                    <p class="pt-4">$681</p>
+                </div>
+                <div class="pt-4">
+                    <a  href=""><img src="{% static 'image/Trash Can.png' %}" alt=""></a>
+                </div>
+            </div>
+            <div class="flex gap-10 border-b shadow-md rounded-xl  py-8 text-center ipad_min:gap-0">
+                <img src="{% static 'image/images (1) 2.png' %}" alt="" class="h-20">
+                <div>
+                    <h4 class="text-xl">Choclate cream</h4>
+                    <p class="text-xs">Extra chees and topping</p>
+                </div>
+                <div class="flex gap-12">
+                    <select class="outline-none" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                    <p class="pt-4">$681</p>
+                </div>
+                <div class="pt-4">
+                    <a  href=""><img src="{% static 'image/Trash Can.png' %}" alt=""></a>
+                </div>
+            </div>/
+            <div class="flex gap-12 border-b shadow-md rounded-xl  py-8 text-center ipad_min:gap-0">
+                <img src="{% static 'image/images (1) 2.png' %}" alt="" class="h-20">
+                <div>
+                    <h4 class="text-xl">Creamy</h4>
+                    <p class="">$681</p>
+                    <p class="text-xs">Extra garnish</p>
+                </div>
+                <div class="flex gap-12 ipad_min:gap-">
+                    <select class="outline-none pl-16" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                    <p class="pt-4">$681</p>
+                </div>
+                <div class="pt-4">
+                    <a  href=""><img src="{% static 'image/Trash Can.png' %}" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="A2 hidden ipad_min:block my-10">
+            <div class="flex gap-2">
+                    <p class="">$681</p>
+                    <a href=""><i class="fa-solid fa-angle-left py-1"></i></a>
+                <h4 class="font-bold text-xl">Shopping Continew</h4>
+            </div>
+            <hr>
+            <div class="">
+                <h4 class="font-bold text-xl">Shopping cart</h4>
+                <p>You have 3 item in your cart</p>
+            </div>
+            <div class="flex justify-evenly border-b rounded-xl my-8">
+                <img src="{% static 'image/images (1) 1.png' %}" alt="" class="h-20">
+                <div>
+                  <h4 class=" text-xl">cream cake</h4>
+                  <p class="text-xs">Extra chees and toping</p>
+                </div>
+                    <p class="">$681</p>
+                    <div class="">
+                    <select class="" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                </div>
+                <div class="flex">
+                    <p class="">$681</p>
+                    <a  href=""><img src="{% static 'image/Trash Can.png' %}" alt=""></a>
+                </div>
+            </div>
+            <div class="flex justify-evenly border-b rounded-xl my-8">
+                <img src="{% static 'image/images (1) 2.png' %}" alt="" class="">
+                <div>
+                    <h4 class="text-xl">Choclate cream</h4>
+                    <p class="text-xs">Extra chees and topping</p>
+                    <p class="">$681</p>
+                </div>
+                <div class="">
+                    <select class="outline-none" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                </div>
+                <div class="flex">
+                    <p class="">$681</p>
+                    <a  href=""><img src="./image/Trash Can.png" alt=""></a>
+                    <p class="">$681</p>
+                </div>
+            </div>
+            <div class="flex justify-evenly border-b rounded-xl my-8">
+                <img src="{% static 'image/images (1) 2.png' %}" alt="" class="">
+                <div>
+                    <h4 class="text-xl">Choclate cream</h4>
+                    <p class="text-xs">Extra chees and topping</p>
+                </div>
+                <div class="">
+                    <select class="outline-none" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                </div>
+                <div class="flex">
+                    <p class="">$681</p>
+                    <p class="">$681</p>
+                    <a  href=""><img src="{% static 'image/Trash Can.png' %}" alt=""></a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="bg-black text-white px-5 rounded-xl ipad_min:w-80">
+            <div class="flex justify-between py-5">
+                <h3 class="text-xl">Card Details</h3>
+                <img src="{% static 'image/attractive-woman-with-beautiful-smile-sitting-lotus-pose-floor-using-silver-notebook-looking-away-isolated-white-wall 1.png' %}" alt="" class="w-14 h-14">
+            </div>
+            <div>
+                <p class="pb-3">Card type</p>
+                <div class="flex justify-between">
+                    <a href=""><img src="{% static 'image/Rectangle 9.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'image/Rectangle 10.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'image/Rectangle 11.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'image/Rectangle 12.png' %}" alt=""> <p class="relative bottom-9 pl-3">see all</p></a>
+                </div>
+            </div>
+            <div>
+                <p class="pb-3">Name on card</p>
+                <div class="">
+                    <input  type="text" class="bg-gray-900 h-12 w-full rounded-xl pl-4" placeholder="Name" >
+                </div>
+            </div>
+            <div>
+                <p class="pt-5 pb-3">Card Number</p>
+                <div>
+                    <input type="number" class="bg-gray-900 h-12 w-full rounded-xl pl-4" placeholder="11222333">
+                </div>
+            </div>
+            <div class="flex gap-32 pt-5 pb-2">
+                <p>Expiration date</p>
+                <p>CVV</p>
+            </div>
+            <div class="flex justify-evenly">
+                <input type="text" class="bg-gray-900 h-12  rounded-xl mx-2 px-1" placeholder="date">
+                <input type="number" class="bg-gray-900 h-12  rounded-xl px-1" placeholder="123">
+            </div>
+            <hr class=" border-t-2 border-yellow-500 flex  my-10">
+                    <p class="">$681</p>
+                    <div class="flex justify-between pt-3">
+                <h4>Subtotal</h4>
+                <p>$1,668</p>
+            </div>
+            <div class="flex justify-between py-3">
+                <h4>Shipping</h4>
+                <p>$4</p>
+            </div>
+            <div class="flex justify-between pb-5">
+                <h4>Total(Tax incl.)</h4>
+                <p>$1,672</p>
+            </div>
+            <div class="bg-yellow-500 text-black rounded-xl h-12 mb-10 w-full">
+                 <button>
+                    <a class="flex gap-96 py-4 px-3" href="">
+                        <P>$1,672</P>
+                        <div class="flex ipad_min:hidden">
+                            <P>Checkout</P>
+                            <img src="{% static 'image/Right (6).png' %}" alt="">
+                        </div>  
+                    </a>
+                 </button>
+            </div>
+        </div>
+    </div>
+   </section>
+   <footer class="bg-black text-white mt-52">
+    <div class="py-16">
+        <div class="flex justify-center">
+            <img src="{% static 'image/WhatsApp Image 2023-09-06 at 11.27 1.png' %}" alt="">
+        </div>
+        
+        <div>
+            <ul class="flex justify-center py-5 gap-5 ipad_min:hidden">
+                <li><a href="">Home</a></li>
+                <li><a href="">Stuffing</a></li>
+                <li><a href="">Order</a></li>
+                <li><a href="">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="flex justify-center gap-5 pb-3">
+            <a href=""><img src="{% static 'image/baseline-facebook (2) 1.png' %}" alt=""></a>
+            <a href=""><img src="{% static 'image/whatsapp 1.png' %}" alt=""></a>
+            <a href=""><img src="{% static 'image/instagram-fill 1.png' %}" alt=""></a>
+            <a href=""><img src="{% static 'image/square-x-twitter (1) 1.png' %}" alt=""></a>
+        </div>
+        <hr>
+        <div  class="text-center pt-5">
+           <p>Copyright cake walk</p>
+        </div>
+    </div>
+   </footer>
+   <script src="{% static 'script.js' %}"></script>
+   </body>
+   </html>
